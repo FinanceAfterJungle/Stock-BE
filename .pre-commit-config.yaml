@@ -1,0 +1,26 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: check-yaml
+    -   id: check-json
+
+-   repo: https://github.com/psf/black
+    rev: 24.10.0
+    hooks:
+    -   id: black
+        args: ["-l", "79"]
+        name: black
+        description: "Black: The uncompromising Python code formatter"
+        entry: black
+        language: python
+        minimum_pre_commit_version: 2.9.2
+        require_serial: true
+        types_or: [python, pyi]
+
+-   repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: 'v0.8.3'
+    hooks:
+    -   id: ruff
+출처: https://callmescone.tistory.com/388 [scone's data:티스토리]
