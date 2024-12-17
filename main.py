@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from stock_app.app import router
 
+from stock_app.db.session import Base, engine
+
 main_app = FastAPI()
 
 origins = [
@@ -22,3 +24,6 @@ main_app.include_router(router)
 @main_app.get("/")
 def test_api():
     return "hello, stock_app~!"
+
+
+Base.metadata.create_all(bind=engine)
